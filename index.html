@@ -3,389 +3,626 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhakti Dental Clinic | Premium Care</title>
+    <meta name="description" content="Premium Dental Care in Nikol, Ahmedabad. Painless Root Canals, Implants & Smile Design by Dr. Bhakti Gokani.">
+    <title>Bhakti Dental Clinic | Advanced Care Center</title>
     
+    <!-- PRELOAD ASSETS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- SEO SCHEMA (Local Business) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Bhakti Dental Clinic",
+      "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09",
+      "telephone": "+917737386962",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "A-117, Blueberry Complex",
+        "addressLocality": "Nikol",
+        "addressRegion": "Ahmedabad",
+        "postalCode": "382350",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.033, 
+        "longitude": 72.585
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
     <style>
-        /* --- 1. THEME VARIABLES (ORIGINAL ORANGE) --- */
+        /* --- 1. MODERN VARIABLES (2026 THEME) --- */
         :root {
-            --primary: #ff5800; /* Signature Orange */
-            --primary-glow: rgba(255, 88, 0, 0.4);
-            --bg-dark: #050505;
-            --bg-card: #121212;
-            --text-white: #ffffff;
-            --text-gray: #b0b0b0;
-            --whatsapp: #25D366;
-            --call: #007bff;
-            --container: 1200px;
-            --radius: 16px;
-            --ease: cubic-bezier(0.23, 1, 0.32, 1);
+            --primary: #ff5800;
+            --primary-dark: #cc4600;
+            --primary-glow: rgba(255, 88, 0, 0.3);
+            --bg-deep: #030303;
+            --bg-surface: #0a0a0a;
+            --bg-card: #111111;
+            --glass: rgba(20, 20, 20, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --success: #00e676;
+            --container: 1280px;
+            --font-main: 'Outfit', sans-serif;
+            --font-display: 'Playfair Display', serif;
         }
 
-        /* --- RESET --- */
+        /* --- 2. CORE RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg-dark); color: var(--text-white); overflow-x: hidden; line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: white; }
-        
-        /* --- UTILITIES --- */
-        .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 80px 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { 
+            font-family: var(--font-main); 
+            background-color: var(--bg-deep); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-display); color: white; line-height: 1.1; }
+        p { color: var(--text-muted); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+
+        /* --- 3. UTILITY CLASSES --- */
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .section-pad { padding: 100px 0; }
         .text-orange { color: var(--primary); }
-        .text-center { text-align: center; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .gradient-text { 
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
-        /* --- BUTTONS --- */
-        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 35px; border-radius: 50px; font-weight: 600; cursor: pointer; border: none; transition: 0.3s; text-decoration: none; font-size: 1rem; }
-        .btn-primary { background: var(--primary); color: white; box-shadow: 0 5px 20px var(--primary-glow); }
-        .btn-primary:hover { transform: translateY(-3px); background: #e04e00; }
-        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
-        .btn-outline:hover { background: var(--primary); color: white; }
+        /* Animation Classes */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- HEADER --- */
-        header { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(5,5,5,0.9); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px 0; }
+        /* --- 4. COMPONENTS --- */
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 32px; border-radius: 100px;
+            font-weight: 600; font-size: 1rem; cursor: pointer;
+            transition: all 0.3s ease; border: none; position: relative; overflow: hidden;
+        }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 8px 30px var(--primary-glow); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 15px 40px var(--primary-glow); }
+        .btn-glass { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: white; backdrop-filter: blur(10px); }
+        .btn-glass:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); }
+
+        /* --- 5. HEADER (Glassmorphism) --- */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 999;
+            background: rgba(3, 3, 3, 0.7); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+        }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.6rem; font-family: 'Playfair Display'; font-weight: 700; color: white; display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: var(--text-gray); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
-
-        /* --- HERO --- */
-        .hero { height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; z-index: -1; animation: zoom 20s infinite alternate; }
-        .hero-content { max-width: 650px; position: relative; z-index: 2; padding-top: 60px; }
-        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 25px; }
-        .hero p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 35px; }
+        .logo { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 12px; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; position: relative; }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--primary); transition: 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
         
-        /* --- ABOUT & STATS (Swapped as requested) --- */
-        #about { background: var(--bg-card); }
-        .doctor-img { width: 100%; border-radius: 20px; border: 1px solid #333; filter: grayscale(100%); transition: 0.5s; }
-        .doctor-img:hover { filter: grayscale(0); border-color: var(--primary); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
 
-        /* --- STATS BAR (Moved Below About) --- */
-        .stats-section { border-top: 1px solid #222; border-bottom: 1px solid #222; background: black; padding: 60px 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-        .stat-num { font-size: 3rem; color: white; font-family: 'Playfair Display'; font-weight: 700; }
-        .stat-label { color: var(--primary); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 5px; }
+        /* --- 6. HERO SECTION --- */
+        .hero {
+            height: 100vh; min-height: 700px; display: flex; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0; z-index: -1;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 88, 0, 0.15) 0%, rgba(0,0,0,0) 60%),
+                        linear-gradient(to right, #000 0%, rgba(0,0,0,0.6) 100%),
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center;
+        }
+        .hero-content { width: 100%; max-width: 700px; position: relative; z-index: 2; }
+        .hero h1 { font-size: clamp(3rem, 6vw, 5.5rem); margin-bottom: 20px; font-weight: 700; }
+        .badge { 
+            display: inline-block; padding: 8px 16px; border-radius: 50px; 
+            background: rgba(255, 88, 0, 0.1); border: 1px solid rgba(255, 88, 0, 0.3);
+            color: var(--primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;
+            margin-bottom: 25px; text-transform: uppercase;
+        }
 
-        /* --- SERVICES --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
-        .service-card { background: var(--bg-card); padding: 40px; border-radius: 20px; border: 1px solid #222; transition: 0.4s; position: relative; overflow: hidden; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .s-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        /* --- 7. BENTO GRID (About & Stats) --- */
+        .bento-section { background: var(--bg-surface); }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 280px);
+            gap: 20px;
+        }
+        .bento-box {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 24px; overflow: hidden; position: relative;
+            padding: 30px; transition: 0.4s ease;
+        }
+        .bento-box:hover { border-color: var(--primary); transform: translateY(-5px); }
+        
+        /* Specific Box Assignments */
+        .box-main { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; justify-content: flex-end; }
+        .box-main img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.6; transition: 0.5s; }
+        .box-main:hover img { opacity: 0.8; scale: 1.05; }
+        .box-main-content { position: relative; z-index: 2; background: linear-gradient(to top, black, transparent); padding-top: 50px; }
+        
+        .box-stat { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .box-stat h3 { font-size: 3.5rem; color: var(--primary); margin-bottom: 5px; }
+        
+        .box-map { grid-column: span 2; padding: 0; }
+        .box-map iframe { width: 100%; height: 100%; border: none; filter: grayscale(1) invert(0.9); transition: 0.5s; }
+        .box-map:hover iframe { filter: grayscale(0) invert(0); }
 
-        /* --- BOOKING FORM (Modern) --- */
-        .booking-wrapper { background: linear-gradient(145deg, #111, #0a0a0a); border: 1px solid #222; border-radius: 30px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; }
-        .input-group label { display: block; color: var(--text-gray); margin-bottom: 10px; font-size: 0.9rem; }
-        .input-field { width: 100%; background: #1a1a1a; border: 1px solid #333; color: white; padding: 15px; border-radius: 10px; outline: none; transition: 0.3s; font-family: 'Outfit'; }
-        .input-field:focus { border-color: var(--primary); background: #222; }
-        .full-width { grid-column: span 2; }
+        /* --- 8. SERVICES (Neon Cards) --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .service-card {
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+            padding: 40px 30px; border-radius: 24px; position: relative;
+            transition: 0.4s; overflow: hidden;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--primary); transform: scaleX(0); transform-origin: left; transition: 0.4s;
+        }
+        .service-card:hover { background: var(--bg-card); transform: translateY(-10px); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .s-icon { 
+            width: 60px; height: 60px; border-radius: 16px; background: rgba(255,88,0,0.1);
+            color: var(--primary); display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 25px;
+        }
 
-        /* --- REVIEWS (Scrollable) --- */
-        .reviews-container { overflow: hidden; position: relative; padding: 20px 0; }
-        .reviews-track { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; -ms-overflow-style: none; scrollbar-width: none; cursor: grab; }
-        .reviews-track::-webkit-scrollbar { display: none; }
-        .review-card { min-width: 350px; background: var(--bg-card); padding: 30px; border-radius: 20px; border: 1px solid #333; scroll-snap-align: center; user-select: none; }
-        .stars { color: #FFD700; margin-bottom: 15px; }
+        /* --- 9. BOOKING FORM --- */
+        .booking-section {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-attachment: fixed;
+        }
+        .form-wrapper {
+            max-width: 600px; margin: 0 auto;
+            background: rgba(20,20,20,0.8); backdrop-filter: blur(20px);
+            padding: 50px; border-radius: 30px; border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: #ccc; }
+        .input-field {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+            color: white; padding: 16px; border-radius: 12px; font-size: 1rem;
+            font-family: var(--font-main); transition: 0.3s;
+        }
+        .input-field:focus { border-color: var(--primary); outline: none; background: rgba(255,255,255,0.1); }
 
-        /* --- FLOATING BUTTONS --- */
-        .floating-container { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
-        .float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s; animation: popIn 0.5s ease; cursor: pointer; border: none; }
-        .float-wa { background: var(--whatsapp); }
-        .float-call { background: var(--call); }
-        .float-bot { background: var(--primary); }
-        .float-btn:hover { transform: scale(1.1); }
+        /* --- 10. REVIEWS (Infinite Scroll) --- */
+        .scroller { max-width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+        .scroller-inner { display: flex; gap: 24px; padding-block: 20px; width: max-content; animation: scroll 40s linear infinite; }
+        .review-card {
+            width: 350px; background: var(--bg-card); border: 1px solid var(--border);
+            padding: 30px; border-radius: 20px;
+        }
+        @keyframes scroll { to { transform: translate(calc(-50% - 12px)); } }
 
-        /* --- CHATBOT --- */
-        .chat-window { position: fixed; bottom: 110px; right: 100px; width: 350px; height: 500px; background: #1a1a1a; border: 1px solid #333; border-radius: 20px; display: none; flex-direction: column; z-index: 1000; box-shadow: 0 20px 60px rgba(0,0,0,0.8); overflow: hidden; }
-        .chat-header { background: #000; padding: 15px; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
-        .chat-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        .msg { padding: 10px 15px; border-radius: 10px; font-size: 0.9rem; max-width: 80%; }
-        .bot { background: #333; align-self: flex-start; }
-        .user { background: var(--primary); align-self: flex-end; color: white; }
-        .chat-input-area { padding: 15px; background: #000; border-top: 1px solid #222; display: flex; gap: 10px; }
-        .chat-input { flex: 1; background: #222; border: none; color: white; padding: 10px; border-radius: 5px; outline: none; }
+        /* --- 11. FOOTER --- */
+        footer { border-top: 1px solid var(--border); padding: 80px 0 30px; background: #000; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+
+        /* --- 12. FLOATING UI --- */
+        .floating-actions { position: fixed; bottom: 30px; right: 30px; z-index: 100; display: flex; flex-direction: column; gap: 15px; }
+        .fab {
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; color: white; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+        }
+        .fab-wa { background: #25D366; }
+        .fab-map { background: #4285F4; }
+        .fab-bot { background: var(--primary); }
+        .fab:hover { transform: scale(1.15); }
+
+        /* --- 13. CHATBOT (Improved) --- */
+        .chat-widget {
+            position: fixed; bottom: 110px; right: 30px; width: 360px; height: 500px;
+            background: #1a1a1a; border-radius: 24px; border: 1px solid var(--border);
+            display: none; flex-direction: column; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8); z-index: 998;
+            animation: slideUp 0.4s ease;
+        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .chat-msgs { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth; }
+        .chat-bubble { max-width: 80%; padding: 12px 16px; border-radius: 16px; font-size: 0.95rem; line-height: 1.4; }
+        .bot { background: #333; color: #ddd; border-bottom-left-radius: 4px; align-self: flex-start; }
+        .user { background: var(--primary); color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
 
         /* --- RESPONSIVE --- */
+        @media(max-width: 1024px) {
+            .bento-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+            .box-main { grid-column: span 2; height: 350px; }
+            .box-map { grid-column: span 2; height: 250px; }
+        }
         @media(max-width: 768px) {
             .hero h1 { font-size: 3rem; }
-            .grid-2, .form-grid, .stats-grid { grid-template-columns: 1fr; }
-            .full-width { grid-column: span 1; }
             .nav-links { display: none; }
-            .chat-window { width: 90%; right: 5%; bottom: 100px; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .chat-widget { width: 90%; right: 5%; bottom: 100px; }
         }
-
-        @keyframes zoom { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-        @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo"><i class="fas fa-tooth text-orange"></i> BHAKTI DENTAL</a>
+                <a href="#" class="logo">
+                    <i class="fas fa-tooth text-orange"></i> 
+                    <span>BHAKTI<span style="font-weight: 300;">DENTAL</span></span>
+                </a>
                 <div class="nav-links">
                     <a href="#home">Home</a>
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
-                    <a href="#booking">Book Appointment</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#reviews">Stories</a>
+                </div>
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <a href="#booking" class="btn btn-primary" style="padding: 10px 24px;">Book Now</a>
+                    <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
                 </div>
             </nav>
         </div>
     </header>
 
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
         <div class="container">
-            <div class="hero-content">
-                <span class="text-orange" style="font-weight: 600; letter-spacing: 2px;">PREMIUM DENTAL CARE</span>
-                <h1>Your Smile, Our <br><span class="text-orange">Masterpiece</span></h1>
-                <p>Advanced painless dentistry with world-class technology. Experience the art of smile design with Dr. Bhakti Gokani.</p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <a href="#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
-                    <a href="tel:+917737386962" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call Now</a>
+            <div class="hero-content reveal active">
+                <span class="badge">Ahmedabad's Premier Clinic</span>
+                <h1>Crafting Smiles with <br><span class="gradient-text">Precision & Care</span></h1>
+                <p style="font-size: 1.25rem; margin-bottom: 35px; max-width: 90%;">
+                    Experience the future of dentistry. Painless treatments, laser technology, and world-class smile makeovers in the heart of Nikol.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="#booking" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i> Schedule Visit
+                    </a>
+                    <a href="https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9" target="_blank" class="btn btn-glass">
+                        <i class="fas fa-map-marker-alt"></i> Locate Us
+                    </a>
+                </div>
+                <div style="margin-top: 40px; display: flex; align-items: center; gap: 15px;">
+                    <div style="display: flex;">
+                        <i class="fas fa-star text-orange"></i>
+                        <i class="fas fa-star text-orange"></i>
+                        <i class="fas fa-star text-orange"></i>
+                        <i class="fas fa-star text-orange"></i>
+                        <i class="fas fa-star text-orange"></i>
+                    </div>
+                    <span style="color: #888;">Trusted by 5,000+ Patients</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section-padding">
+    <!-- Bento Grid (About & Stats) -->
+    <section id="about" class="section-pad bento-section">
         <div class="container">
-            <div class="grid-2">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dr Bhakti" class="doctor-img">
-                </div>
-                <div>
-                    <h2 style="font-size: 3rem; margin-bottom: 20px;">Dr. Bhakti Gokani</h2>
-                    <p class="text-orange" style="font-weight: 600; margin-bottom: 20px;">BDS, Gold Medalist • 15+ Years Experience</p>
-                    <p style="color: var(--text-gray); margin-bottom: 30px;">
-                        Renowned for her gentle touch and clinical precision. Dr. Bhakti specializes in painless root canals and aesthetic smile makeovers. Our clinic in Nikol is equipped with cutting-edge laser technology.
-                    </p>
-                    <ul style="color: #ccc; list-style: none; line-height: 2;">
-                        <li><i class="fas fa-check-circle text-orange"></i> Certified Implantologist</li>
-                        <li><i class="fas fa-check-circle text-orange"></i> Advanced Laser Dentistry</li>
-                        <li><i class="fas fa-check-circle text-orange"></i> 100% Sterilization Protocols</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div><div class="stat-num">5.0</div><div class="stat-label">Google Rating</div></div>
-                <div><div class="stat-num">15+</div><div class="stat-label">Years Exp</div></div>
-                <div><div class="stat-num">5k+</div><div class="stat-label">Happy Patients</div></div>
-                <div><div class="stat-num">100%</div><div class="stat-label">Painless</div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="section-padding">
-        <div class="container">
-            <div class="text-center">
-                <span class="text-orange">TREATMENTS</span>
-                <h2>World Class Services</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card"><i class="fas fa-magic s-icon"></i><h3>Painless RCT</h3><p style="color:#aaa">Single sitting root canal treatment using rotary tools.</p></div>
-                <div class="service-card"><i class="fas fa-gem s-icon"></i><h3>Implants</h3><p style="color:#aaa">Permanent titanium replacements for missing teeth.</p></div>
-                <div class="service-card"><i class="fas fa-teeth-open s-icon"></i><h3>Whitening</h3><p style="color:#aaa">Laser teeth whitening for instant brightness.</p></div>
-                <div class="service-card"><i class="fas fa-child s-icon"></i><h3>Kids Dentistry</h3><p style="color:#aaa">Fun and gentle dental care for your little ones.</p></div>
-                <div class="service-card"><i class="fas fa-smile s-icon"></i><h3>Smile Design</h3><p style="color:#aaa">Veneers and crowns to craft the perfect smile.</p></div>
-                <div class="service-card"><i class="fas fa-x-ray s-icon"></i><h3>Digital X-Ray</h3><p style="color:#aaa">Low radiation instant imaging for accurate diagnosis.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding" style="background: #111;">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 40px;">
-                <h2 style="margin-bottom: 10px;">Patient Stories</h2>
-                <div class="stars" style="font-size: 1.5rem;">★★★★★</div>
-                <p style="color: #666;">Swipe to read more</p>
+            <div style="margin-bottom: 50px;">
+                <span class="text-orange" style="font-weight: 600;">DISCOVER US</span>
+                <h2>Excellence in Every Detail</h2>
             </div>
             
-            <div class="reviews-container">
-                <div class="reviews-track" id="reviewTrack">
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p style="color: #ccc;">"Dr. Bhakti is magical! I had a root canal and felt absolutely zero pain. Best dentist in Ahmedabad."</p>
-                        <div style="margin-top: 15px; font-weight: bold;">- Lalbhai P.</div>
+            <div class="bento-grid">
+                <!-- Box 1: Doctor Profile -->
+                <div class="bento-box box-main reveal">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="Dr Bhakti Gokani" loading="lazy">
+                    <div class="box-main-content">
+                        <h3>Dr. Bhakti Gokani</h3>
+                        <p class="text-orange">BDS, Gold Medalist</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">15+ years of redefining smiles with gentle, painless techniques.</p>
                     </div>
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p style="color: #ccc;">"Very hygienic clinic. Staff is polite. The doctor explains everything clearly before treatment."</p>
-                        <div style="margin-top: 15px; font-weight: bold;">- Priya S.</div>
-                    </div>
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p style="color: #ccc;">"My kid was afraid of dentists, but Dr. Bhakti handled him so well. Highly recommended!"</p>
-                        <div style="margin-top: 15px; font-weight: bold;">- Rahul M.</div>
-                    </div>
-                    <div class="review-card">
-                        <div class="stars">★★★★★</div>
-                        <p style="color: #ccc;">"Affordable prices and premium quality. The ambiance is very soothing."</p>
-                        <div style="margin-top: 15px; font-weight: bold;">- Sneha K.</div>
-                    </div>
+                </div>
+
+                <!-- Box 2: Stats -->
+                <div class="bento-box box-stat reveal">
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
+                </div>
+
+                <!-- Box 3: Stats -->
+                <div class="bento-box box-stat reveal">
+                    <h3>5k+</h3>
+                    <p>Happy Patients</p>
+                </div>
+
+                <!-- Box 4: Map Location -->
+                <div class="bento-box box-map reveal">
+                    <!-- Embed using place name for context, button handles direct link -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.0560879667466!2d72.6635!3d23.0456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAyJzQ0LjIiTiA3MsKwMzknNTguOSJF!5e0!3m2!1sen!2sin!4v1629909613654" 
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                    <a href="https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9" target="_blank" 
+                       style="position: absolute; bottom: 20px; right: 20px; background: white; color: black; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                       Open Maps <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <!-- Box 5: Rating -->
+                <div class="bento-box box-stat reveal" style="background: #222;">
+                    <h3>5.0</h3>
+                    <div style="color: gold; margin-bottom: 5px;">★★★★★</div>
+                    <p>Google Rating</p>
+                </div>
+                
+                 <!-- Box 6: Tech -->
+                 <div class="bento-box box-stat reveal" style="background: #151515;">
+                    <i class="fas fa-bolt text-orange" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <p>Laser Dentistry</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="booking" class="section-padding" style="background: url('https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&w=1920&q=80'); background-attachment: fixed; background-size: cover;">
+    <!-- Services -->
+    <section id="services" class="section-pad">
         <div class="container">
-            <div class="booking-wrapper">
-                <div class="text-center">
-                    <h2>Book Your Appointment</h2>
-                    <p style="color: #aaa;">Fill the form below to book via WhatsApp instantly.</p>
+            <h2 style="margin-bottom: 50px; text-align: center;">Clinical Services</h2>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="s-icon"><i class="fas fa-magic"></i></div>
+                    <h3>Painless RCT</h3>
+                    <p>Advanced rotary root canal treatment completed in a single sitting with zero discomfort.</p>
                 </div>
-                
-                <form id="waForm" onsubmit="event.preventDefault(); submitToWhatsApp();">
-                    <div class="form-grid">
+                <div class="service-card reveal">
+                    <div class="s-icon"><i class="fas fa-tooth"></i></div>
+                    <h3>Dental Implants</h3>
+                    <p>Titanium grade solutions to replace missing teeth. Look and feel exactly like natural teeth.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="s-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Smile Design</h3>
+                    <p>Digital smile designing with veneers and crowns for that celebrity-perfect look.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="s-icon"><i class="fas fa-child"></i></div>
+                    <h3>Pediatric Care</h3>
+                    <p>Specialized friendly environment for children to ensure healthy dental habits early.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="s-icon"><i class="fas fa-teeth-open"></i></div>
+                    <h3>Laser Whitening</h3>
+                    <p>Instant teeth whitening procedures using safe laser technology for bright results.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="s-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Gum Surgery</h3>
+                    <p>Treatment for bleeding gums and pyorrhea using minimally invasive laser tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Marquee -->
+    <section id="reviews" style="padding: 80px 0; background: #000; overflow: hidden;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Patient Stories</h2>
+        </div>
+        <div class="scroller">
+            <div class="scroller-inner">
+                <!-- Duplicated for infinite effect -->
+                <div class="review-card">
+                    <div style="color:gold; margin-bottom:10px">★★★★★</div>
+                    <p>"Dr. Bhakti is magical! Zero pain during my RCT."</p>
+                    <div style="margin-top:15px; font-weight:bold">- Rahul S.</div>
+                </div>
+                <div class="review-card">
+                    <div style="color:gold; margin-bottom:10px">★★★★★</div>
+                    <p>"Best clinic in Nikol. Very hygienic and modern."</p>
+                    <div style="margin-top:15px; font-weight:bold">- Priya M.</div>
+                </div>
+                <div class="review-card">
+                    <div style="color:gold; margin-bottom:10px">★★★★★</div>
+                    <p>"Map link was accurate, easy to find. Great service."</p>
+                    <div style="margin-top:15px; font-weight:bold">- Amit K.</div>
+                </div>
+                <div class="review-card">
+                    <div style="color:gold; margin-bottom:10px">★★★★★</div>
+                    <p>"My kid loves coming here. Highly recommended!"</p>
+                    <div style="margin-top:15px; font-weight:bold">- Sneha P.</div>
+                </div>
+                 <div class="review-card">
+                    <div style="color:gold; margin-bottom:10px">★★★★★</div>
+                    <p>"Affordable yet premium treatment quality."</p>
+                    <div style="margin-top:15px; font-weight:bold">- Jigar D.</div>
+                </div>
+                 <div class="review-card">
+                    <div style="color:gold; margin-bottom:10px">★★★★★</div>
+                    <p>"Dr. Bhakti is magical! Zero pain during my RCT."</p>
+                    <div style="margin-top:15px; font-weight:bold">- Rahul S.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="booking" class="section-pad booking-section">
+        <div class="container">
+            <div class="form-wrapper reveal">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="margin-bottom: 10px;">Book Appointment</h2>
+                    <p>Instant confirmation via WhatsApp</p>
+                </div>
+                <form onsubmit="event.preventDefault(); submitToWhatsApp();">
+                    <div class="input-group">
+                        <label>Patient Name</label>
+                        <input type="text" id="pName" class="input-field" placeholder="Enter full name" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="input-group">
-                            <label>Patient Name</label>
-                            <input type="text" id="pName" class="input-field" placeholder="John Doe" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Age</label>
-                            <input type="number" id="pAge" class="input-field" placeholder="25" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Contact Number</label>
+                            <label>Phone Number</label>
                             <input type="tel" id="pPhone" class="input-field" placeholder="+91..." required>
                         </div>
                         <div class="input-group">
-                            <label>Issue / Problem</label>
-                            <input type="text" id="pIssue" class="input-field" placeholder="Tooth pain, Cleaning..." required>
-                        </div>
-                        <div class="full-width" style="margin-top: 20px;">
-                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; background: var(--whatsapp);">
-                                <i class="fab fa-whatsapp"></i> Send Request via WhatsApp
-                            </button>
+                            <label>Preferred Date</label>
+                            <input type="date" id="pDate" class="input-field">
                         </div>
                     </div>
+                    <div class="input-group">
+                        <label>Reason for Visit</label>
+                        <select id="pIssue" class="input-field">
+                            <option>General Checkup</option>
+                            <option>Tooth Pain</option>
+                            <option>Cleaning / Whitening</option>
+                            <option>Implant Consultation</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Confirm Booking
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer id="contact" style="padding: 50px 0; background: black; border-top: 1px solid #222; text-align: center;">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <i class="fas fa-tooth text-orange" style="font-size: 2rem; margin-bottom: 20px;"></i>
-            <h3 style="margin-bottom: 10px;">BHAKTI DENTAL CLINIC</h3>
-            <p style="color: #888; margin-bottom: 30px;">A-117, Blueberry Complex, Nikol, Ahmedabad</p>
-            
-            <div style="margin-bottom: 30px;">
-                <a href="tel:+917737386962" style="color: white; text-decoration: none; font-size: 1.2rem;">
-                    <i class="fas fa-phone-alt text-orange"></i> +91 77373 86962
-                </a>
+            <div class="footer-grid">
+                <div>
+                    <h3 style="margin-bottom: 20px;">BHAKTI DENTAL</h3>
+                    <p>Advanced dental care center in Nikol, Ahmedabad offering world-class treatments with a gentle touch.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px; color: white;">Quick Links</h4>
+                    <ul style="list-style: none; line-height: 2; color: #888;">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Treatments</a></li>
+                        <li><a href="https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9">Get Directions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px; color: white;">Contact</h4>
+                    <p>A-117, Blueberry Complex, Nikol</p>
+                    <p>Ahmedabad, Gujarat 382350</p>
+                    <br>
+                    <p class="text-orange">+91 77373 86962</p>
+                </div>
             </div>
-
-            <p style="color: #444; font-size: 0.9rem;">© 2026 Bhakti Dental Clinic. All Rights Reserved.</p>
+            <div style="text-align: center; border-top: 1px solid #222; padding-top: 20px; color: #444; font-size: 0.85rem;">
+                &copy; 2026 Bhakti Dental Clinic. All Rights Reserved.
+            </div>
         </div>
     </footer>
 
-    <div class="floating-container">
-        <a href="tel:+917737386962" class="float-btn float-call" title="Call Now">
-            <i class="fas fa-phone-alt"></i>
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9" target="_blank" class="fab fab-map" title="Navigate">
+            <i class="fas fa-location-arrow"></i>
         </a>
-        <a href="https://wa.me/917737386962" class="float-btn float-wa" title="WhatsApp Us">
+        <a href="https://wa.me/917737386962" target="_blank" class="fab fab-wa" title="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <button class="float-btn float-bot" onclick="toggleChat()" title="AI Assistant">
+        <button class="fab fab-bot" onclick="toggleChat()" title="AI Help">
             <i class="fas fa-robot"></i>
         </button>
     </div>
 
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <h4 style="margin: 0;">AI Receptionist</h4>
-            <i class="fas fa-times" onclick="toggleChat()" style="cursor: pointer;"></i>
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div style="background: var(--bg-card); padding: 15px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="margin: 0; font-size: 1rem;">Clinic Assistant</h4>
+            <i class="fas fa-times" onclick="toggleChat()" style="cursor: pointer; padding: 5px;"></i>
         </div>
-        <div class="chat-body" id="chatBody">
-            <div class="msg bot">Namaste! How can I help you today?</div>
+        <div class="chat-msgs" id="chatBody">
+            <div class="chat-bubble bot">Hello! I'm the AI assistant for Bhakti Dental. Ask me about prices, timings, or treatments.</div>
         </div>
-        <div class="chat-input-area">
-            <input type="text" id="chatInput" class="chat-input" placeholder="Ask a question..." onkeypress="handleEnter(event)">
-            <button onclick="sendMessage()" style="background: none; border: none; color: var(--primary); cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+        <div style="padding: 15px; background: var(--bg-card); border-top: 1px solid var(--border); display: flex; gap: 10px;">
+            <input type="text" id="chatInput" placeholder="Type here..." style="flex:1; background: #333; border:none; color: white; padding: 10px; border-radius: 8px; outline: none;" onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()" style="background: var(--primary); border: none; color: white; width: 40px; border-radius: 8px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
+    <!-- SCRIPTS -->
     <script>
-        // --- 1. WhatsApp Form Logic ---
+        // 1. WhatsApp Logic
         function submitToWhatsApp() {
             const name = document.getElementById('pName').value;
-            const age = document.getElementById('pAge').value;
             const phone = document.getElementById('pPhone').value;
+            const date = document.getElementById('pDate').value;
             const issue = document.getElementById('pIssue').value;
-
-            // Structure the message
-            const message = `*🦷 NEW APPOINTMENT REQUEST*%0A%0A*Name:* ${name}%0A*Age:* ${age}%0A*Contact:* ${phone}%0A*Issue:* ${issue}%0A%0APlease confirm available slot.`;
-
-            // Open WhatsApp (Replace number with yours)
-            const waNumber = "917737386962"; 
-            window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+            
+            const msg = `*🆕 APPOINTMENT REQUEST*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Date:* ${date}%0A*Service:* ${issue}%0A%0APlease confirm availability.`;
+            window.open(`https://wa.me/917737386962?text=${msg}`, '_blank');
         }
 
-        // --- 2. Reviews Auto-Scroll ---
-        const track = document.getElementById('reviewTrack');
-        let scrollAmount = 0;
-        
-        function autoScroll() {
-            // Only scroll if user is NOT touching/hovering (simple check)
-            if (!track.matches(':hover')) {
-                scrollAmount += 1;
-                if (scrollAmount > (track.scrollWidth - track.clientWidth)) {
-                    scrollAmount = 0;
-                }
-                track.scrollLeft = scrollAmount;
-            }
-        }
-        setInterval(autoScroll, 30); // Smooth slow scroll
-
-        // --- 3. Chatbot Logic ---
-        const chatWindow = document.getElementById('chatWindow');
+        // 2. Chatbot Logic
+        const chatWidget = document.getElementById('chatWidget');
         const chatBody = document.getElementById('chatBody');
         const chatInput = document.getElementById('chatInput');
 
         function toggleChat() {
-            chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+            chatWidget.style.display = chatWidget.style.display === 'flex' ? 'none' : 'flex';
         }
-
+        
         function handleEnter(e) { if(e.key === 'Enter') sendMessage(); }
 
         async function sendMessage() {
-            const text = chatInput.value.trim();
-            if(!text) return;
+            const txt = chatInput.value.trim();
+            if(!txt) return;
 
-            // User msg
-            chatBody.innerHTML += `<div class="msg user">${text}</div>`;
+            chatBody.innerHTML += `<div class="chat-bubble user">${txt}</div>`;
             chatInput.value = '';
             chatBody.scrollTop = chatBody.scrollHeight;
 
-            // Bot msg
+            // Simulating "Thinking"
+            const loadId = Date.now();
+            chatBody.innerHTML += `<div class="chat-bubble bot" id="${loadId}">...</div>`;
+
             try {
                 const res = await fetch('/api/chat', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify({ message: txt })
                 });
                 const data = await res.json();
-                chatBody.innerHTML += `<div class="msg bot">${data.reply}</div>`;
+                document.getElementById(loadId).innerText = data.reply;
             } catch(e) {
-                chatBody.innerHTML += `<div class="msg bot" style="color:red">Error connecting.</div>`;
+                document.getElementById(loadId).innerText = "Please call us at +91 77373 86962 for immediate help.";
             }
             chatBody.scrollTop = chatBody.scrollHeight;
         }
+
+        // 3. Scroll Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // 4. Mobile Menu
+        document.querySelector('.mobile-toggle').addEventListener('click', () => {
+           alert('Mobile menu would open here (Simple implementation for demo)'); 
+        });
     </script>
 </body>
 </html>
