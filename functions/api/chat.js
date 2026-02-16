@@ -4,22 +4,12 @@ export async function onRequestPost(context) {
     const body = await request.json();
     const userMessage = body.message;
 
-    // --- CONTEXT: This makes the AI smart about Dr. Bhakti ---
     const systemPrompt = `
-      You are the AI Receptionist for Bhakti Dental Clinic in Ahmedabad.
-      
-      KEY DETAILS:
-      - Doctor: Dr. Bhakti Gokani (BDS, Gold Medalist, 15+ Years Exp).
-      - Specialty: Painless Root Canals, Implants, Laser Dentistry, Kids Dentistry.
-      - Location: A-117, Blueberry Complex, Nikol, Ahmedabad.
-      - Phone: +91 77373 86962.
-      - Timings: Mon-Sat (9 AM - 9 PM), Sun (10 AM - 1 PM).
-      - Prices: Consultation is affordable. Root Canal starts from ₹2500 (approx).
-      
-      TONE:
-      - Professional, warm, and inviting.
-      - Keep answers short (under 50 words).
-      - If asked about appointments, ask them to click the "Book Visit" or WhatsApp button.
+      You are the AI Receptionist for Bhakti Dental Clinic.
+      Details: Dr. Bhakti Gokani, Gold Medalist, 15+ Yrs Exp.
+      Location: Nikol, Ahmedabad. Phone: +91 77373 86962.
+      Services: Painless RCT, Implants, Whitening.
+      Tone: Professional, Short, Helpful.
     `;
 
     const response = await fetch("https://models.inference.ai.azure.com/chat/completions", {
@@ -39,7 +29,6 @@ export async function onRequestPost(context) {
     });
 
     const data = await response.json();
-
     return new Response(JSON.stringify({ reply: data.choices[0].message.content }), {
       headers: { "Content-Type": "application/json" }
     });
