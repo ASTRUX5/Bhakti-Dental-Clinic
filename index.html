@@ -2,459 +2,650 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhakti Dental | The Future of Smile Care</title>
-    <meta name="description" content="Painless, AI-Assisted Dental Care in Nikol, Ahmedabad. Dr. Bhakti Gokani.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Akshar Dental Clinic | Vastral, Ahmedabad</title>
+    <meta name="description" content="Dr. Pratik Prajapati - Advanced Painless Dentistry in Vastral, Ahmedabad.">
 
-    <!-- PRELOAD CRITICAL ASSETS -->
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- SEO SCHEMA -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Dentist",
-      "name": "Bhakti Dental Clinic",
-      "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09",
-      "telephone": "+917737386962",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "A-117, Blueberry Complex",
-        "addressLocality": "Nikol",
-        "addressRegion": "Ahmedabad",
-        "postalCode": "382350",
-        "addressCountry": "IN"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": 23.033, "longitude": 72.585 },
-      "url": "https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "09:00",
-        "closes": "21:00"
-      }
-    }
-    </script>
-
     <style>
-        /* --- 1. THEME 2026 --- */
+        /* --- THEME --- */
         :root {
-            --neon-orange: #ff5e00;
-            --neon-glow: rgba(255, 94, 0, 0.4);
-            --void-black: #050505;
-            --panel-black: #0a0a0a;
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-surface: rgba(20, 20, 20, 0.6);
-            --text-main: #ffffff;
-            --text-dim: #888888;
-            --font-head: 'Syne', sans-serif;
-            --font-body: 'Space Grotesk', sans-serif;
-            --ease: cubic-bezier(0.25, 1, 0.5, 1);
+            --primary: #ff5e00;
+            --primary-glow: rgba(255, 94, 0, 0.4);
+            --bg-void: #050505;
+            --bg-panel: #111;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.1);
+            --whatsapp: #25D366;
+            --font: 'Outfit', sans-serif;
         }
 
-        /* --- 2. BASE & RESET --- */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; font-size: 16px; }
         body {
-            background-color: var(--void-black);
-            color: var(--text-main);
-            font-family: var(--font-body);
+            background-color: var(--bg-void);
+            color: var(--text-white);
+            font-family: var(--font);
             overflow-x: hidden;
-            /* Subtle Noise Texture for Premium Feel */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            line-height: 1.5;
         }
 
-        h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        img { display: block; max-width: 100%; object-fit: cover; }
+        /* --- UTILS --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-pad { padding: 80px 0; }
+        .text-orange { color: var(--primary); }
+        h1, h2, h3 { line-height: 1.1; font-weight: 700; }
+        img { display: block; width: 100%; object-fit: cover; }
         
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
-        .section-pad { padding: 100px 0; }
-        .text-orange { color: var(--neon-orange); }
-        
-        /* --- 3. DYNAMIC ISLAND HEADER (Floats & Smart Hides) --- */
-        .nav-wrapper {
-            position: fixed; top: 20px; left: 0; right: 0;
-            display: flex; justify-content: center; z-index: 1000;
-            transition: transform 0.4s var(--ease);
+        /* --- HEADER --- */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(5,5,5,0.85); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border); padding: 15px 0;
+            transition: transform 0.3s;
         }
-        .nav-wrapper.hidden { transform: translateY(-150%); }
-
-        .dynamic-island {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            padding: 10px 10px 10px 30px;
-            border-radius: 100px;
-            display: flex; align-items: center; gap: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; color: white; }
+        header.hide { transform: translateY(-100%); }
         
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-size: 0.9rem; font-weight: 500; color: #aaa; position: relative; }
-        .nav-links a:hover { color: white; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; gap: 8px; text-decoration: none; color: white; }
         
-        .btn-book-nav {
-            background: var(--neon-orange); color: white;
-            padding: 12px 28px; border-radius: 50px;
-            font-weight: 700; font-size: 0.9rem;
-            box-shadow: 0 0 20px var(--neon-glow);
-            transition: 0.3s; display: flex; align-items: center; gap: 8px;
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px;
+            border-radius: 50px; font-weight: 600; font-size: 0.9rem; text-decoration: none;
+            transition: 0.3s; border: none; cursor: pointer;
         }
-        .btn-book-nav:hover { transform: scale(1.05); box-shadow: 0 0 40px var(--neon-glow); }
-
-        /* --- 4. HERO SECTION --- */
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 5px 15px var(--primary-glow); }
+        .btn-call { background: #007bff; color: white; }
+        
+        /* --- HERO --- */
         .hero {
             height: 100vh; display: flex; align-items: center; position: relative;
-            padding-top: 80px; /* Offset for header */
+            background: radial-gradient(circle at 70% 30%, rgba(255,94,0,0.15), transparent 60%), #050505;
         }
-        .hero-bg {
-            position: absolute; inset: 0; z-index: -1;
-            background: radial-gradient(circle at 80% 20%, rgba(255,94,0,0.15), transparent 50%),
-                        linear-gradient(to top, var(--void-black), transparent),
-                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover; background-position: center; opacity: 0.6;
-        }
-        .hero-content { max-width: 800px; position: relative; z-index: 2; }
-        .hero h1 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; }
-        .hero p { font-size: 1.3rem; color: var(--text-dim); margin-bottom: 40px; max-width: 600px; }
-        
-        /* Stats Strip */
-        .stats-strip {
-            display: flex; gap: 40px; margin-top: 40px; border-top: 1px solid var(--glass-border); padding-top: 30px;
-        }
-        .stat-item h4 { font-size: 2rem; color: white; font-weight: 700; }
-        .stat-item span { font-size: 0.8rem; text-transform: uppercase; color: var(--neon-orange); letter-spacing: 1px; }
+        .hero-content { max-width: 650px; position: relative; z-index: 2; }
+        .hero h1 { font-size: clamp(3rem, 6vw, 4.5rem); margin-bottom: 20px; }
+        .hero p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 30px; }
 
-        /* --- 5. HOLO-CARDS (Treatments) --- */
-        .treatment-scroll-container {
-            display: flex; gap: 20px; overflow-x: auto;
-            scroll-snap-type: x mandatory; padding: 20px 0 50px 0;
+        /* --- DOCTOR SECTION --- */
+        .doctor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .doc-img-wrapper {
+            position: relative; border-radius: 50%; overflow: hidden;
+            width: 300px; height: 300px; margin: 0 auto;
+            border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(255,94,0,0.2);
+        }
+
+        /* --- 1:1 SERVICES --- */
+        .services-scroll {
+            display: flex; gap: 20px; overflow-x: auto; 
+            scroll-snap-type: x mandatory; padding-bottom: 30px;
             -ms-overflow-style: none; scrollbar-width: none;
         }
-        .treatment-scroll-container::-webkit-scrollbar { display: none; }
+        .services-scroll::-webkit-scrollbar { display: none; }
         
-        .holo-card {
-            min-width: 300px; height: 400px; flex-shrink: 0; scroll-snap-align: center;
-            background: var(--panel-black); border: 1px solid var(--glass-border);
-            border-radius: 30px; position: relative; overflow: hidden;
-            display: flex; flex-direction: column; justify-content: flex-end; padding: 30px;
-            transition: 0.4s var(--ease); cursor: pointer;
+        .service-card {
+            min-width: 280px; width: 280px; flex-shrink: 0; scroll-snap-align: center;
+            background: var(--bg-panel); border: 1px solid var(--border);
+            border-radius: 24px; overflow: hidden;
         }
-        .holo-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--neon-orange); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .holo-card img {
-            position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.4; transition: 0.4s;
-            filter: grayscale(100%);
+        .s-img { 
+            width: 100%; aspect-ratio: 1/1; /* PERFECT SQUARE */
+            object-fit: cover; 
         }
-        .holo-card:hover img { opacity: 0.6; filter: grayscale(0%); transform: scale(1.1); }
-        .holo-content { position: relative; z-index: 2; background: linear-gradient(to top, black, transparent); }
-        .holo-icon { 
-            font-size: 2rem; color: var(--neon-orange); margin-bottom: 10px; 
-            background: rgba(255, 94, 0, 0.1); width: 60px; height: 60px; 
-            display: flex; align-items: center; justify-content: center; border-radius: 50%;
-        }
+        .s-content { padding: 20px; }
 
-        /* --- 6. INFINITE REVIEWS (Finger Scroll) --- */
-        .reviews-wrapper {
-            position: relative; overflow: hidden;
-            background: linear-gradient(90deg, var(--void-black), #111, var(--void-black));
+        /* --- BEFORE / AFTER SECTION --- */
+        .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .ba-card {
+            background: var(--bg-panel); border: 1px solid var(--border);
+            border-radius: 20px; overflow: hidden; display: flex;
         }
+        .ba-half { width: 50%; position: relative; }
+        .ba-half img { width: 100%; height: 200px; object-fit: cover; }
+        .ba-badge {
+            position: absolute; bottom: 10px; left: 10px; 
+            padding: 4px 10px; font-size: 0.7rem; font-weight: bold; border-radius: 4px;
+        }
+        .badge-before { background: rgba(0,0,0,0.7); color: #ccc; }
+        .badge-after { background: var(--primary); color: white; }
+
+        /* --- REVIEWS --- */
         .reviews-track {
-            display: flex; gap: 30px; overflow-x: auto;
-            scroll-snap-type: x mandatory; padding: 40px 20px;
-            cursor: grab; scrollbar-width: none;
+            display: flex; gap: 20px; overflow-x: hidden; 
+            padding: 20px 0; white-space: nowrap;
         }
-        .reviews-track::-webkit-scrollbar { display: none; }
-        .review-pill {
-            min-width: 320px; background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border); border-radius: 20px;
-            padding: 30px; scroll-snap-align: center; user-select: none;
+        .review-card {
+            min-width: 300px; background: var(--bg-panel); padding: 25px;
+            border-radius: 20px; border: 1px solid var(--border);
+            display: inline-block; white-space: normal;
         }
-        .review-pill:hover { background: rgba(255,255,255,0.05); }
 
-        /* --- 7. BENTO GRID (Doctor + Map) --- */
-        .bento-grid {
-            display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px;
+        /* --- BOOKING WHEEL UI --- */
+        .booking-container {
+            background: #111; padding: 30px; border-radius: 30px; border: 1px solid var(--border);
+            max-width: 600px; margin: 0 auto;
         }
-        .bento-card {
-            background: var(--panel-black); border-radius: 30px; border: 1px solid var(--glass-border);
-            overflow: hidden; position: relative;
+        .wheel-group { display: flex; gap: 10px; margin-bottom: 20px; }
+        .wheel-col { flex: 1; }
+        .wheel-label { font-size: 0.8rem; color: #666; margin-bottom: 5px; display: block; }
+        .wheel-box {
+            height: 100px; background: #000; overflow-y: scroll; scroll-snap-type: y mandatory;
+            border-radius: 10px; border: 1px solid #333; text-align: center;
+            position: relative; scrollbar-width: none;
         }
-        .doctor-card {
-            display: flex; align-items: flex-end; height: 500px; padding: 40px;
-            background: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80') top/cover;
-        }
-        .doctor-info {
-            background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
-            padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border); width: 100%;
-        }
+        .wheel-box::-webkit-scrollbar { display: none; }
+        .wheel-item { height: 33px; display: flex; align-items: center; justify-content: center; scroll-snap-align: center; color: #555; font-size: 0.9rem; }
+        .wheel-item.active { color: var(--primary); font-weight: bold; font-size: 1rem; }
         
-        .map-card { height: 500px; position: relative; }
-        .map-card iframe { width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(180deg) contrast(90%); }
-        .map-overlay {
-            position: absolute; bottom: 20px; left: 20px; right: 20px;
-            background: white; color: black; padding: 20px; border-radius: 20px;
-            display: flex; justify-content: space-between; align-items: center;
+        .input-box {
+            width: 100%; background: #000; border: 1px solid #333; color: white;
+            padding: 12px; border-radius: 10px; margin-bottom: 15px; font-family: var(--font); outline: none;
         }
+        select.input-box { appearance: none; -webkit-appearance: none; cursor: pointer; }
 
-        /* --- 8. BOOKING UI --- */
-        .booking-ui {
-            background: linear-gradient(145deg, #111, #000);
-            border: 1px solid var(--glass-border); border-radius: 40px;
-            padding: 60px; text-align: center; max-width: 800px; margin: 0 auto;
+        /* --- FOOTER & SOCIALS --- */
+        .social-row { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
+        .social-icon {
+            width: 50px; height: 50px; border-radius: 50%; background: #1a1a1a;
+            color: white; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: 0.3s; border: 1px solid #333; text-decoration: none;
         }
-        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .magic-input {
-            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-            padding: 20px; border-radius: 12px; color: white; font-family: var(--font-body);
-            font-size: 1rem; transition: 0.3s;
-        }
-        .magic-input:focus { border-color: var(--neon-orange); outline: none; background: rgba(255,94,0,0.05); }
+        .social-icon:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-3px); }
 
-        /* --- 9. UTILS & FLOATING --- */
-        .fab-stack { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 99; }
-        .fab {
-            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; color: white; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1); cursor: pointer;
+        /* --- CHATBOT UI --- */
+        .chat-btn {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: var(--primary); border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; color: white; font-size: 1.5rem;
+            cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 1001; border: none;
         }
-        .fab:hover { transform: scale(1.15) rotate(5deg); }
-        .fab-wa { background: #25D366; }
-        .fab-bot { background: var(--neon-orange); }
-
+        .chat-window {
+            position: fixed; bottom: 100px; right: 30px; width: 340px; height: 450px;
+            background: #1a1a1a; border-radius: 20px; border: 1px solid var(--border);
+            display: none; flex-direction: column; overflow: hidden; z-index: 1000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+        .chat-header { background: #000; padding: 15px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .msg { padding: 10px 14px; border-radius: 12px; font-size: 0.9rem; max-width: 80%; }
+        .bot { background: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user { background: var(--primary); align-self: flex-end; border-bottom-right-radius: 2px; }
+        
+        /* --- FAB STACK --- */
+        .fab-stack { position: fixed; bottom: 100px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        .fab-mini { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        
         /* RESPONSIVE */
-        @media(max-width: 1024px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .map-card { height: 350px; }
-        }
         @media(max-width: 768px) {
-            .dynamic-island { padding: 10px; gap: 0; justify-content: space-between; width: 90vw; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 3.5rem; }
-            .input-row { grid-template-columns: 1fr; }
-            .doctor-card { height: 400px; }
+            .doctor-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 3rem; }
+            .chat-window { width: 90%; right: 5%; bottom: 100px; }
+            .fab-stack { bottom: 110px; }
         }
-        
-        /* Chat Widget */
-        .chat-ui {
-            position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px;
-            background: #111; border-radius: 24px; border: 1px solid var(--glass-border);
-            display: none; flex-direction: column; overflow: hidden; z-index: 998;
-            box-shadow: 0 50px 100px rgba(0,0,0,1); animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        @keyframes popUp { from { transform: translateY(50px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
-        .msg-bubble { padding: 12px 16px; border-radius: 14px; margin-bottom: 10px; font-size: 0.9rem; max-width: 85%; }
-        .bot-msg { background: #222; color: #ccc; align-self: flex-start; border-bottom-left-radius: 2px; }
-        .user-msg { background: var(--neon-orange); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
     </style>
 </head>
 <body>
 
-    <!-- 1. SMART HEADER -->
-    <div class="nav-wrapper" id="navbar">
-        <nav class="dynamic-island">
-            <a href="#" class="logo">
-                <i class="fas fa-tooth text-orange"></i> BHAKTI
-            </a>
-            <div class="nav-links">
-                <a href="#about">The Doctor</a>
-                <a href="#treatments">Treatments</a>
-                <a href="#reviews">Stories</a>
-                <a href="#location">Location</a>
-            </div>
-            <a href="#booking" class="btn-book-nav">
-                Book Now <i class="fas fa-arrow-right"></i>
-            </a>
-        </nav>
-    </div>
+    <!-- HEADER -->
+    <header id="mainHeader">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-tooth text-orange"></i> AKSHAR DENTAL
+                </a>
+                <div class="header-actions">
+                    <a href="tel:+919067026607" class="btn btn-call"><i class="fas fa-phone"></i> Call</a>
+                    <a href="#booking" class="btn btn-primary">Book Now</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <!-- 2. HERO -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-                    <span style="height: 2px; width: 40px; background: var(--neon-orange);"></span>
-                    <span style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #aaa;">Nikol, Ahmedabad</span>
-                </div>
-                <h1>The Future of <br><span class="text-orange">Painless Dentistry</span></h1>
-                <p>Experience world-class dental care with laser precision. Dr. Bhakti Gokani combines art and science to craft your perfect smile.</p>
-                
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <a href="#booking" class="btn-book-nav" style="padding: 16px 40px; font-size: 1rem;">
-                        <i class="fab fa-whatsapp"></i> Instant Booking
+                <span class="text-orange" style="font-weight: 600; letter-spacing: 2px;">VASTRAL, AHMEDABAD</span>
+                <h1>Future of <br><span class="text-orange">Painless Smiles</span></h1>
+                <p>Advanced laser dentistry by Dr. Pratik Prajapati. Experience world-class care in your neighborhood.</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://wa.me/919067026607" class="btn" style="background: #25D366; color: white;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9" target="_blank" style="padding: 16px 30px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; color: white;">
-                        <i class="fas fa-location-arrow"></i> Navigate
-                    </a>
-                </div>
-
-                <div class="stats-strip">
-                    <div class="stat-item"><h4>15+</h4><span>Years Exp</span></div>
-                    <div class="stat-item"><h4>5k+</h4><span>Smiles</span></div>
-                    <div class="stat-item"><h4>5.0</h4><span>Rating</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. HOLO-CARDS (TREATMENTS) -->
-    <section id="treatments" class="section-pad">
+    <!-- DOCTOR INFO -->
+    <section class="section-pad">
         <div class="container">
-            <h2 style="margin-bottom: 40px; font-size: 2.5rem;">Clinical Excellence</h2>
-        </div>
-        
-        <!-- Horizontal Scroll Container -->
-        <div class="treatment-scroll-container">
-            <!-- Spacer for left padding -->
-            <div style="min-width: 20px;"></div>
-
-            <!-- Card 1 -->
-            <div class="holo-card">
-                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="RCT">
-                <div class="holo-content">
-                    <div class="holo-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Painless RCT</h3>
-                    <p style="color:#aaa; font-size:0.9rem; margin-top:10px;">Single sitting rotary root canal treatment with zero discomfort.</p>
+            <div class="doctor-grid">
+                <div class="doc-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" alt="Dr Bhakti Gokani">
                 </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="holo-card">
-                <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=800&q=80" alt="Implants">
-                <div class="holo-content">
-                    <div class="holo-icon"><i class="fas fa-screw"></i></div>
-                    <h3>Titanium Implants</h3>
-                    <p style="color:#aaa; font-size:0.9rem; margin-top:10px;">Permanent, natural-looking replacements for missing teeth.</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="holo-card">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="Smile">
-                <div class="holo-content">
-                    <div class="holo-icon"><i class="fas fa-gem"></i></div>
-                    <h3>Smile Design</h3>
-                    <p style="color:#aaa; font-size:0.9rem; margin-top:10px;">Veneers and crowns digitally designed for the perfect aesthetic.</p>
-                </div>
-            </div>
-
-             <!-- Card 4 -->
-             <div class="holo-card">
-                <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=800&q=80" alt="Whitening">
-                <div class="holo-content">
-                    <div class="holo-icon"><i class="fas fa-star"></i></div>
-                    <h3>Laser Whitening</h3>
-                    <p style="color:#aaa; font-size:0.9rem; margin-top:10px;">Instant brightening using safe, advanced laser technology.</p>
-                </div>
-            </div>
-
-            <!-- Spacer for right padding -->
-            <div style="min-width: 20px;"></div>
-        </div>
-    </section>
-
-    <!-- 4. ABOUT & LOCATION (BENTO GRID) -->
-    <section id="about" class="section-pad" style="background: #080808;">
-        <div class="container">
-            <div class="bento-grid">
-                <!-- Doctor Profile -->
-                <div class="bento-card doctor-card">
-                    <div class="doctor-info">
-                        <h3 style="font-size: 2rem; margin-bottom: 5px;">Dr. Bhakti Gokani</h3>
-                        <p class="text-orange" style="font-weight: 700; letter-spacing: 1px;">BDS • GOLD MEDALIST</p>
-                        <p style="color: #ccc; margin-top: 15px; line-height: 1.6;">
-                            With over 15 years of experience, Dr. Bhakti is renowned in Nikol for her gentle hand and clinical precision. Specializing in saving natural teeth and creating celebrity smiles.
-                        </p>
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Dr. Pratik Prajapati</h2>
+                    <p class="text-orange" style="font-weight: 600; margin-bottom: 20px;">BDS • Skilled & Experienced</p>
+                    <p style="color: #ccc; margin-bottom: 20px;">
+                        Dr. Pratik is Vastral's most trusted dental expert, specializing in painless root canals and aesthetic makeovers. He combines a gentle touch with cutting-edge technology and exceptional patient care.
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div><i class="fas fa-check text-orange"></i> Laser Expert</div>
+                        <div><i class="fas fa-check text-orange"></i> Implantologist</div>
+                        <div><i class="fas fa-check text-orange"></i> Kids Friendly</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Map -->
-                <div class="bento-card map-card" id="location">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.0560879667466!2d72.6635!3d23.0456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAyJzQ0LjIiTiA3MsKwMzknNTguOSJF!5e0!3m2!1sen!2sin!4v1629909613654" 
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
-                    <div class="map-overlay">
-                        <div>
-                            <div style="font-weight: bold;">Blueberry Complex</div>
-                            <div style="font-size: 0.8rem; color: #666;">Nikol, Ahmedabad</div>
+    <!-- WORKING HOURS & INFO -->
+    <section class="section-pad" style="background: var(--bg-void);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto;">
+                
+                <!-- Working Hours -->
+                <div style="background: var(--bg-panel); padding: 30px; border-radius: 20px; border: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <i class="fas fa-clock" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        <h3 style="font-size: 1.3rem;">Working Hours</h3>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222;">
+                            <span style="color: var(--text-gray);">Mon - Fri</span>
+                            <span style="font-weight: 600;">9 AM - 1 PM, 5 PM - 9 PM</span>
                         </div>
-                        <a href="https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9" target="_blank" style="background: var(--void-black); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-directions"></i>
-                        </a>
+                        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #222;">
+                            <span style="color: var(--text-gray);">Saturday</span>
+                            <span style="font-weight: 600;">9 AM - 1 PM, 5 PM - 9 PM</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                            <span style="color: var(--text-gray);">Sunday</span>
+                            <span style="font-weight: 600; color: #ff4444;">Closed</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.85rem; color: #666;">
+                        <i class="fas fa-info-circle"></i> Walk-ins welcome during working hours
+                    </p>
+                </div>
+
+                <!-- Payment Methods -->
+                <div style="background: var(--bg-panel); padding: 30px; border-radius: 20px; border: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <i class="fas fa-credit-card" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        <h3 style="font-size: 1.3rem;">Payment Options</h3>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 15px;">
+                        <span style="background: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; border: 1px solid #333;">
+                            <i class="fas fa-money-bill-wave"></i> Cash
+                        </span>
+                        <span style="background: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; border: 1px solid #333;">
+                            <i class="fas fa-credit-card"></i> Cards
+                        </span>
+                        <span style="background: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; border: 1px solid #333;">
+                            <i class="fas fa-mobile-alt"></i> UPI
+                        </span>
+                        <span style="background: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; border: 1px solid #333;">
+                            <i class="fas fa-qrcode"></i> PhonePe/GPay
+                        </span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #666;">
+                        <i class="fas fa-parking"></i> Free parking available
+                    </p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div style="background: var(--bg-panel); padding: 30px; border-radius: 20px; border: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                        <i class="fas fa-star" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        <h3 style="font-size: 1.3rem;">Patient Trust</h3>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">1000+</div>
+                            <div style="color: var(--text-gray); font-size: 0.9rem;">Happy Smiles</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">5.0 ⭐</div>
+                            <div style="color: var(--text-gray); font-size: 0.9rem;">Google Rating (126 Reviews)</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. REVIEWS (AUTO SCROLL) -->
-    <section id="reviews" class="section-pad">
-        <div class="container" style="text-align: center; margin-bottom: 30px;">
-            <i class="fas fa-quote-left text-orange" style="font-size: 2rem;"></i>
-            <h2 style="margin-top: 10px;">Patient Stories</h2>
-        </div>
-        <div class="reviews-wrapper">
-            <div class="reviews-track" id="reviewTrack">
-                <!-- Review 1 -->
-                <div class="review-pill">
-                    <div style="color: gold; margin-bottom: 10px;">★★★★★</div>
-                    <p style="color: #ccc; font-size: 1.1rem;">"Dr. Bhakti is truly magical. I was terrified of the root canal, but she made it completely painless."</p>
-                    <div style="margin-top: 20px; font-weight: 700; color: white;">- Rahul M.</div>
-                </div>
-                <!-- Review 2 -->
-                <div class="review-pill">
-                    <div style="color: gold; margin-bottom: 10px;">★★★★★</div>
-                    <p style="color: #ccc; font-size: 1.1rem;">"The clinic is so futuristic and clean. The staff is polite. Best dental experience in Ahmedabad."</p>
-                    <div style="margin-top: 20px; font-weight: 700; color: white;">- Priya S.</div>
-                </div>
-                <!-- Review 3 -->
-                <div class="review-pill">
-                    <div style="color: gold; margin-bottom: 10px;">★★★★★</div>
-                    <p style="color: #ccc; font-size: 1.1rem;">"Located perfectly in Nikol. Easy parking. Highly recommend for kids dentistry."</p>
-                    <div style="margin-top: 20px; font-weight: 700; color: white;">- Ankit Patel</div>
-                </div>
-                <!-- Review 4 -->
-                <div class="review-pill">
-                    <div style="color: gold; margin-bottom: 10px;">★★★★★</div>
-                    <p style="color: #ccc; font-size: 1.1rem;">"Affordable prices for such premium quality. My smile makeover looks fantastic!"</p>
-                    <div style="margin-top: 20px; font-weight: 700; color: white;">- Sneha K.</div>
-                </div>
-                 <!-- Review 5 -->
-                 <div class="review-pill">
-                    <div style="color: gold; margin-bottom: 10px;">★★★★★</div>
-                    <p style="color: #ccc; font-size: 1.1rem;">"Absolutely zero pain. I slept through the procedure. Dr. Bhakti is the best."</p>
-                    <div style="margin-top: 20px; font-weight: 700; color: white;">- Jigar D.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. BOOKING FORM -->
-    <section id="booking" class="section-pad">
+    <!-- CLINICAL EXCELLENCE -->
+    <section class="section-pad" style="background: #111;">
         <div class="container">
-            <div class="booking-ui">
-                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Ready for your new smile?</h2>
-                <p style="color: #888;">Fill this form to generate an instant WhatsApp request.</p>
+            <h2 style="margin-bottom: 30px;">Clinical Excellence</h2>
+            <div class="services-scroll">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=500&h=500&q=80" class="s-img" alt="RCT">
+                    <div class="s-content">
+                        <h3>Painless RCT</h3>
+                        <p style="color:#888; font-size:0.9rem">Single sitting rotary.</p>
+                        <p style="color:var(--primary); font-weight:600; margin-top:8px; font-size:0.95rem;">₹3,000 - ₹5,000</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=500&h=500&q=80" class="s-img" alt="Implants">
+                    <div class="s-content">
+                        <h3>Implants</h3>
+                        <p style="color:#888; font-size:0.9rem">Titanium screw fix.</p>
+                        <p style="color:var(--primary); font-weight:600; margin-top:8px; font-size:0.95rem;">₹25,000 - ₹40,000</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&h=500&q=80" class="s-img" alt="Smile">
+                    <div class="s-content">
+                        <h3>Smile Design</h3>
+                        <p style="color:#888; font-size:0.9rem">Veneers & Crowns.</p>
+                        <p style="color:var(--primary); font-weight:600; margin-top:8px; font-size:0.95rem;">₹6,000 - ₹15,000</p>
+                    </div>
+                </div>
+                 <!-- Card 4 -->
+                 <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=500&h=500&q=80" class="s-img" alt="Whitening">
+                    <div class="s-content">
+                        <h3>Laser Whitening</h3>
+                        <p style="color:#888; font-size:0.9rem">Instant brightness.</p>
+                        <p style="color:var(--primary); font-weight:600; margin-top:8px; font-size:0.95rem;">₹8,000 - ₹12,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE & AFTER GALLERY -->
+    <section class="section-pad">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <span class="text-orange" style="font-weight: 600;">TRANSFORMATIONS</span>
+                <h2>Real Smile Results</h2>
+            </div>
+            
+            <div class="ba-grid">
+                <!-- Transformation 1 -->
+                <div class="ba-card">
+                    <div class="ba-half">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&q=80" style="filter: grayscale(100%) contrast(1.2);">
+                        <span class="ba-badge badge-before">BEFORE</span>
+                    </div>
+                    <div class="ba-half">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&q=80">
+                        <span class="ba-badge badge-after">AFTER</span>
+                    </div>
+                </div>
+
+                <!-- Transformation 2 -->
+                <div class="ba-card">
+                    <div class="ba-half">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=80" style="filter: sepia(0.5) brightness(0.8);">
+                        <span class="ba-badge badge-before">BEFORE</span>
+                    </div>
+                    <div class="ba-half">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=80">
+                        <span class="ba-badge badge-after">AFTER</span>
+                    </div>
+                </div>
+
+                <!-- Transformation 3 -->
+                <div class="ba-card">
+                    <div class="ba-half">
+                        <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=500&q=80" style="filter: contrast(1.5) brightness(0.7);">
+                        <span class="ba-badge badge-before">BEFORE</span>
+                    </div>
+                    <div class="ba-half">
+                        <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=500&q=80">
+                        <span class="ba-badge badge-after">AFTER</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLINIC PHOTOS -->
+    <section class="section-pad" style="background: var(--bg-panel);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 30px;">Our Clinic</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
                 
-                <form onsubmit="event.preventDefault(); submitToWhatsApp();">
-                    <div class="input-row">
-                        <input type="text" id="pName" class="magic-input" placeholder="Your Name" required>
-                        <input type="tel" id="pPhone" class="magic-input" placeholder="Phone Number" required>
+                <div style="border-radius: 20px; overflow: hidden; height: 200px; border: 1px solid var(--border);">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=80" alt="Reception" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <div style="border-radius: 20px; overflow: hidden; height: 200px; border: 1px solid var(--border);">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=80" alt="Treatment Room" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <div style="border-radius: 20px; overflow: hidden; height: 200px; border: 1px solid var(--border);">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=500&q=80" alt="Equipment" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <div style="border-radius: 20px; overflow: hidden; height: 200px; border: 1px solid var(--border);">
+                    <img src="https://images.unsplash.com/photo-1629909615957-be38bc83ed60?auto=format&fit=crop&w=500&q=80" alt="Waiting Area" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                <i class="fas fa-shield-alt"></i> Sterilized equipment • Modern technology • Comfortable environment
+            </p>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section-pad">
+        <div class="container">
+            <h2 style="margin-bottom: 30px;">Google Reviews</h2>
+            <div style="overflow: hidden;">
+                <div class="reviews-track" id="reviewTrack">
+                    <div class="review-card">
+                        <div style="color: gold;">★★★★★</div>
+                        <p style="color: #ccc; margin-top: 10px;">"Treatment was absolutely painless, and the doctor was very gentle and patient."</p>
+                        <div style="font-weight: bold; margin-top: 10px;">- Vidhi Patel</div>
                     </div>
-                    <div class="input-row">
-                        <input type="text" id="pIssue" class="magic-input" placeholder="What do you need? (e.g. Pain, Cleaning)" required>
-                        <input type="date" id="pDate" class="magic-input" style="color-scheme: dark;">
+                    <div class="review-card">
+                        <div style="color: gold;">★★★★★</div>
+                        <p style="color: #ccc; margin-top: 10px;">"Dr. Pratik is so friendly and confident with skillful hands."</p>
+                        <div style="font-weight: bold; margin-top: 10px;">- Prakashbhai</div>
                     </div>
+                    <div class="review-card">
+                        <div style="color: gold;">★★★★★</div>
+                        <p style="color: #ccc; margin-top: 10px;">"Best hospital for teeth. My satisfaction level is extremely good!"</p>
+                        <div style="font-weight: bold; margin-top: 10px;">- Vivek Prajapati</div>
+                    </div>
+                    <div class="review-card">
+                        <div style="color: gold;">★★★★★</div>
+                        <p style="color: #ccc; margin-top: 10px;">"Perfect treatment, very smart & superb nature."</p>
+                        <div style="font-weight: bold; margin-top: 10px;">- Tanariri Musical</div>
+                    </div>
+                    <div class="review-card">
+                        <div style="color: gold;">★★★★★</div>
+                        <p style="color: #ccc; margin-top: 10px;">"Staff is so good. Doctor's nature and advice is excellent."</p>
+                        <div style="font-weight: bold; margin-top: 10px;">- Smit Chavda</div>
+                    </div>
+                    <div class="review-card">
+                        <div style="color: gold;">★★★★★</div>
+                        <p style="color: #ccc; margin-top: 10px;">"The experience was fantastic. Doctor was very caring towards me."</p>
+                        <div style="font-weight: bold; margin-top: 10px;">- Suraj Pophale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW PATIENT CHECKLIST -->
+    <section class="section-pad" style="background: linear-gradient(135deg, #1a0a00 0%, #050505 100%);">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 15px;">First Time Visiting?</h2>
+                <p style="color: var(--text-gray); margin-bottom: 30px;">Here's what you need to know</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left;">
                     
-                    <button type="submit" class="btn-book-nav" style="width: 100%; justify-content: center; margin-top: 40px; padding: 20px; font-size: 1.1rem;">
+                    <div style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border);">
+                        <div style="width: 50px; height: 50px; background: rgba(255,94,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-file-medical" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Bring Records</h4>
+                        <p style="color: #888; font-size: 0.9rem;">Previous dental X-rays or reports if available</p>
+                    </div>
+
+                    <div style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border);">
+                        <div style="width: 50px; height: 50px; background: rgba(255,94,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-clock" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Arrive 10 Mins Early</h4>
+                        <p style="color: #888; font-size: 0.9rem;">For registration and paperwork</p>
+                    </div>
+
+                    <div style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border);">
+                        <div style="width: 50px; height: 50px; background: rgba(255,94,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-user-md" style="color: var(--primary); font-size: 1.3rem;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Free Consultation</h4>
+                        <p style="color: #888; font-size: 0.9rem;">Initial checkup included with first visit</p>
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 25px; padding: 20px; background: rgba(255,94,0,0.05); border-radius: 15px; border: 1px solid rgba(255,94,0,0.2);">
+                    <p style="color: var(--text-gray); font-size: 0.95rem;">
+                        <i class="fas fa-lightbulb" style="color: var(--primary);"></i>
+                        <strong style="color: white;"> Pro Tip:</strong> Book online or WhatsApp to skip the queue!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section-pad" style="background: var(--bg-void);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Frequently Asked Questions</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+                
+                <details style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border); cursor: pointer;">
+                    <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        Do you accept walk-ins?
+                        <i class="fas fa-chevron-down" style="color: var(--primary); font-size: 0.9rem;"></i>
+                    </summary>
+                    <p style="margin-top: 15px; color: var(--text-gray); padding-left: 10px;">
+                        Yes! Walk-ins are welcome during working hours (Mon-Sat: 9 AM-1 PM, 5-9 PM). However, booking an appointment ensures minimal waiting time.
+                    </p>
+                </details>
+
+                <details style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border); cursor: pointer;">
+                    <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        Is parking available at the clinic?
+                        <i class="fas fa-chevron-down" style="color: var(--primary); font-size: 0.9rem;"></i>
+                    </summary>
+                    <p style="margin-top: 15px; color: var(--text-gray); padding-left: 10px;">
+                        Yes, free parking is available near the clinic. You can park conveniently on Vastral Road.
+                    </p>
+                </details>
+
+                <details style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border); cursor: pointer;">
+                    <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        Are treatments painful?
+                        <i class="fas fa-chevron-down" style="color: var(--primary); font-size: 0.9rem;"></i>
+                    </summary>
+                    <p style="margin-top: 15px; color: var(--text-gray); padding-left: 10px;">
+                        We specialize in painless dentistry using modern techniques and local anesthesia. Most patients report feeling minimal to no discomfort during procedures.
+                    </p>
+                </details>
+
+                <details style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border); cursor: pointer;">
+                    <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        What should I bring for my first visit?
+                        <i class="fas fa-chevron-down" style="color: var(--primary); font-size: 0.9rem;"></i>
+                    </summary>
+                    <p style="margin-top: 15px; color: var(--text-gray); padding-left: 10px;">
+                        Just bring any previous dental records or X-rays if available. For kids, bring their favorite toy or book to keep them comfortable. No other documents required.
+                    </p>
+                </details>
+
+                <details style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border); cursor: pointer;">
+                    <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        Are kids comfortable during treatment?
+                        <i class="fas fa-chevron-down" style="color: var(--primary); font-size: 0.9rem;"></i>
+                    </summary>
+                    <p style="margin-top: 15px; color: var(--text-gray); padding-left: 10px;">
+                        Absolutely! Dr. Pratik is specially trained in pediatric dentistry. We create a friendly environment with gentle techniques to ensure children feel safe and comfortable.
+                    </p>
+                </details>
+
+                <details style="background: var(--bg-panel); padding: 20px; border-radius: 15px; border: 1px solid var(--border); cursor: pointer;">
+                    <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        How long does a typical appointment take?
+                        <i class="fas fa-chevron-down" style="color: var(--primary); font-size: 0.9rem;"></i>
+                    </summary>
+                    <p style="margin-top: 15px; color: var(--text-gray); padding-left: 10px;">
+                        Consultations take 15-30 minutes. Simple procedures like cleaning take 30-45 minutes. Complex treatments like RCT or implants may require 1-2 hours depending on the case.
+                    </p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM BOOKING UI -->
+    <section id="booking" class="section-pad" style="background: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-attachment: fixed;">
+        <div class="container">
+            <div class="booking-container">
+                <h2 style="text-align: center; margin-bottom: 20px;">Book Appointment</h2>
+                
+                <form onsubmit="event.preventDefault(); submitBooking();">
+                    <input type="text" id="pName" class="input-box" placeholder="Your Name" required>
+                    <input type="tel" id="pPhone" class="input-box" placeholder="Phone Number" required>
+                    
+                    <!-- NEW: Select Problem Dropdown -->
+                    <select id="pService" class="input-box">
+                        <option value="" disabled selected>Select Problem / Service</option>
+                        <option value="Tooth Pain">Tooth Pain</option>
+                        <option value="Cleaning">Teeth Cleaning</option>
+                        <option value="Root Canal">Root Canal</option>
+                        <option value="Implants">Implants</option>
+                        <option value="Braces">Braces</option>
+                        <option value="Kids Dental">Kids Dental</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <!-- Date Wheel -->
+                    <label class="wheel-label">Preferred Date</label>
+                    <div class="wheel-group">
+                        <div class="wheel-col">
+                            <div class="wheel-box" id="dayWheel"></div>
+                        </div>
+                        <div class="wheel-col">
+                            <div class="wheel-box" id="monthWheel"></div>
+                        </div>
+                    </div>
+
+                    <!-- Time Wheel -->
+                    <label class="wheel-label">Preferred Time</label>
+                    <div class="wheel-group">
+                        <div class="wheel-col">
+                            <div class="wheel-box" id="hourWheel"></div>
+                        </div>
+                        <div class="wheel-col">
+                            <div class="wheel-box" id="ampmWheel"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 20px;">
                         <i class="fab fa-whatsapp"></i> Send Request
                     </button>
                 </form>
@@ -462,125 +653,157 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer style="padding: 50px 0; border-top: 1px solid var(--glass-border); text-align: center; color: #555;">
+    <!-- LOCATION & SOCIALS -->
+    <section class="section-pad">
         <div class="container">
-            <p>&copy; 2026 Bhakti Dental Clinic. All Rights Reserved.</p>
+            <h2 style="margin-bottom: 20px;">Visit Us</h2>
+            <div style="height: 400px; border-radius: 20px; overflow: hidden; border: 1px solid #333;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.3898!2d72.66199!3d23.00278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87a3e71a1e59%3A0x8f8e5f5c5e5e5e5e!2sAkshar%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1629909613654" width="100%" height="100%" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: #888; font-size: 1.1rem; margin-bottom: 20px;">
+                    11-15, Vastral Road, Mahadev Nagar Tekra<br>Ahmedabad, Gujarat 382418
+                </p>
+                
+                <!-- SOCIAL MEDIA ICONS -->
+                <div class="social-row">
+                    <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://maps.app.goo.gl/your-google-maps-link" class="social-icon" title="Google Reviews"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 0.8rem; color: #555;">© 2026 Akshar Dental Clinic. All Rights Reserved.</p>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- FAB STACK -->
+    <!-- CHATBOT -->
+    <button class="chat-btn" onclick="toggleChat()">
+        <i class="fas fa-robot"></i>
+    </button>
+    
     <div class="fab-stack">
-        <a href="https://maps.app.goo.gl/WbMUYt4kEbSNcWvH9" target="_blank" class="fab" style="background: #4285F4;" title="Location">
-            <i class="fas fa-location-dot"></i>
-        </a>
-        <a href="https://wa.me/917737386962" class="fab fab-wa" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <button class="fab fab-bot" onclick="toggleChat()" title="AI Assistant">
-            <i class="fas fa-robot"></i>
-        </button>
+        <a href="https://wa.me/919067026607" class="fab-mini" style="background: #25D366;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+919067026607" class="fab-mini" style="background: #007bff;"><i class="fas fa-phone"></i></a>
     </div>
 
-    <!-- CHAT WIDGET -->
-    <div class="chat-ui" id="chatWindow">
-        <div style="padding: 15px; background: #000; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between;">
-            <span style="font-weight: 700; color: white;">AI Receptionist</span>
-            <i class="fas fa-times" onclick="toggleChat()" style="color: #666; cursor: pointer;"></i>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>AI Receptionist</span>
+            <i class="fas fa-times" onclick="toggleChat()" style="cursor: pointer;"></i>
         </div>
-        <div id="chatBody" style="flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column;">
-            <div class="msg-bubble bot-msg">Namaste! How can I help you with your dental needs today?</div>
+        <div class="chat-body" id="chatBody">
+            <div class="msg bot">Namaste! How can I help you today?</div>
         </div>
-        <div style="padding: 15px; background: #000; display: flex; gap: 10px;">
-            <input type="text" id="chatInput" style="flex: 1; background: #222; border: none; color: white; padding: 12px; border-radius: 8px; outline: none;" placeholder="Ask me..." onkeypress="handleEnter(event)">
-            <button onclick="sendMessage()" style="background: var(--neon-orange); border: none; color: white; width: 40px; border-radius: 8px; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+        <div style="padding: 10px; background: #000; display: flex; gap: 5px;">
+            <input type="text" id="chatInput" style="flex: 1; background: #222; border: none; color: white; padding: 10px; border-radius: 5px;" placeholder="Type...">
+            <button onclick="sendMessage()" style="background: var(--primary); border: none; color: white; padding: 0 15px; border-radius: 5px;"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
-    <!-- JS LOGIC -->
     <script>
-        // 1. SMART NAVBAR
+        // 1. HEADER HIDE
         let lastScroll = 0;
-        const nav = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                nav.classList.add('hidden'); // Scroll Down -> Hide
-            } else {
-                nav.classList.remove('hidden'); // Scroll Up -> Show
-            }
-            lastScroll = currentScroll;
+            const h = document.getElementById('mainHeader');
+            const st = window.pageYOffset;
+            if(st > lastScroll && st > 50) h.classList.add('hide');
+            else h.classList.remove('hide');
+            lastScroll = st;
         });
 
-        // 2. WHATSAPP LOGIC
-        function submitToWhatsApp() {
+        // 2. REVIEWS AUTO SCROLL
+        const track = document.getElementById('reviewTrack');
+        track.innerHTML += track.innerHTML; 
+        let pos = 0;
+        function scrollReviews() {
+            pos++;
+            if(pos >= track.scrollWidth / 2) pos = 0;
+            track.scrollLeft = pos;
+            requestAnimationFrame(scrollReviews);
+        }
+        scrollReviews();
+
+        // 3. WHEEL PICKER LOGIC
+        function initWheel(id, start, end, items=[]) {
+            const el = document.getElementById(id);
+            el.innerHTML = '<div style="height:33px"></div>'; // Spacer
+            if(items.length) {
+                items.forEach(i => el.innerHTML += `<div class="wheel-item">${i}</div>`);
+            } else {
+                for(let i=start; i<=end; i++) el.innerHTML += `<div class="wheel-item">${i}</div>`;
+            }
+            el.innerHTML += '<div style="height:33px"></div>'; // Spacer
+            
+            el.addEventListener('scroll', () => {
+                const center = Math.round(el.scrollTop / 33);
+                const kids = el.querySelectorAll('.wheel-item');
+                kids.forEach((k, i) => k.classList.toggle('active', i === center));
+            });
+            setTimeout(() => el.scrollTop = 33, 100);
+        }
+
+        initWheel('dayWheel', 1, 31);
+        initWheel('monthWheel', 0, 0, ['Jan','Feb','Mar','Apr','May']);
+        initWheel('hourWheel', 9, 12);
+        initWheel('ampmWheel', 0, 0, ['AM','PM']);
+
+        // 4. BOOKING SUBMIT (UPDATED WHATSAPP MESSAGE)
+        function submitBooking() {
             const name = document.getElementById('pName').value;
             const phone = document.getElementById('pPhone').value;
-            const issue = document.getElementById('pIssue').value;
-            const date = document.getElementById('pDate').value;
+            const service = document.getElementById('pService').value;
             
-            const msg = `*📅 NEW APPOINTMENT REQUEST*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Issue:* ${issue}%0A*Date:* ${date}%0A%0APlease confirm.`;
-            window.open(`https://wa.me/917737386962?text=${msg}`, '_blank');
+            const getVal = (id) => document.querySelector(`#${id} .active`)?.innerText || '';
+            const date = `${getVal('dayWheel')} ${getVal('monthWheel')}`;
+            const time = `${getVal('hourWheel')} ${getVal('ampmWheel')}`;
+            
+            if(!name || !phone || !service) return alert('Please fill Name, Phone and Service');
+            
+            // Format:
+            // 🦷 Appointment Request from (Name)
+            // 👤 Name: ...
+            // 📞 Phone: ...
+            // 📅 Preferred Date: ...
+            // 🕐 Preferred Time: ...
+            // 🏥 Problem: ...
+            
+            const msg = `🦷 *Appointment Request from ${name}*%0A%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A📅 *Preferred Date:* ${date}%0A🕐 *Preferred Time:* ${time}%0A🏥 *Problem:* ${service}`;
+            
+            window.open(`https://wa.me/919067026607?text=${msg}`, '_blank');
         }
 
-        // 3. REVIEWS AUTO SCROLL (Pauses on hover/touch)
-        const track = document.getElementById('reviewTrack');
-        let scrollSpeed = 1;
-        let isHovered = false;
-
-        track.addEventListener('mouseenter', () => isHovered = true);
-        track.addEventListener('mouseleave', () => isHovered = false);
-        track.addEventListener('touchstart', () => isHovered = true);
-        track.addEventListener('touchend', () => isHovered = false);
-
-        function autoScroll() {
-            if (!isHovered) {
-                track.scrollLeft += scrollSpeed;
-                // Reset to start for infinite loop illusion (simplified)
-                if (track.scrollLeft >= (track.scrollWidth - track.clientWidth)) {
-                    track.scrollLeft = 0;
-                }
-            }
-            requestAnimationFrame(autoScroll);
-        }
-        requestAnimationFrame(autoScroll);
-
-        // 4. CHATBOT
-        const chatWin = document.getElementById('chatWindow');
-        const chatBody = document.getElementById('chatBody');
-        const chatIn = document.getElementById('chatInput');
+        // 5. CHATBOT
+        const cw = document.getElementById('chatWindow');
+        const cb = document.getElementById('chatBody');
+        const ci = document.getElementById('chatInput');
 
         function toggleChat() {
-            chatWin.style.display = chatWin.style.display === 'flex' ? 'none' : 'flex';
+            cw.style.display = cw.style.display === 'flex' ? 'none' : 'flex';
         }
-        function handleEnter(e) { if(e.key === 'Enter') sendMessage(); }
 
         async function sendMessage() {
-            const txt = chatIn.value.trim();
+            const txt = ci.value;
             if(!txt) return;
-
-            // User UI
-            chatBody.innerHTML += `<div class="msg-bubble user-msg">${txt}</div>`;
-            chatIn.value = '';
-            chatBody.scrollTop = chatBody.scrollHeight;
-
-            // Typing Indicator
-            const loaderId = Date.now();
-            chatBody.innerHTML += `<div class="msg-bubble bot-msg" id="${loaderId}">...</div>`;
+            
+            cb.innerHTML += `<div class="msg user">${txt}</div>`;
+            ci.value = '';
+            cb.scrollTop = cb.scrollHeight;
 
             try {
                 const res = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ message: txt })
+                    method: 'POST', body: JSON.stringify({message: txt}),
+                    headers: {'Content-Type': 'application/json'}
                 });
                 const data = await res.json();
-                document.getElementById(loaderId).innerText = data.reply;
+                cb.innerHTML += `<div class="msg bot">${data.reply}</div>`;
             } catch(e) {
-                document.getElementById(loaderId).innerText = "Connection error. Please call +91 77373 86962.";
+                cb.innerHTML += `<div class="msg bot">Error connecting to Dr. Bhakti's AI.</div>`;
             }
-            chatBody.scrollTop = chatBody.scrollHeight;
+            cb.scrollTop = cb.scrollHeight;
         }
     </script>
 </body>
-</html>
+    </html>
